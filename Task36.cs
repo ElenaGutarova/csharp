@@ -1,51 +1,26 @@
-Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на чётных позициях.
-int Prompt(string message)
-{
- Console.Write(message);
- string readInput = Console.ReadLine();
- int result=int.Parse(readInput);
- return result;
-}
-int [] Fillarray (int length, int min, int max)
-{
-    int [] array =new int [length];
-    Random random=new Random();
-    for (int i = 0; i < length; i++)
-     {
-       array [i]=new Random().Next(100,1000);
-     } 
-    return array;
-}
-void Printarray (int [] array)    
-{
-    Console.Write ("[");
-    for (int i = 0; i < array.Length-1; i++)
-    {
-        Console.Write ($"{array[i]},");
-    }
-    Console.Write ($"{array[array.Length-1]}");
-    Console.Write ("]");
-}
+//Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
 
-    
+//[3, 7, 23, 12] -> 19
 
-int length = Prompt ("Длина массива");
-int Min = Prompt ("Начальное значение для диапазона случайного числа ");
-int Max = Prompt ("Конечное значение для диапазона случайного числа ");
-int [] array = Fillarray (length, Min, Max);
-Printarray (array);
-int EvenNumbers (int [] array)
+//[-4, -6, 89, 6] -> 0
+int c = 0;
+int[] array = new int[4];
+int result = 0;
+while (c < 4)
 {
- int Sum =0;
- for (int i = 0; i < length; i++)
- {
-  if (array[i]/2!=0)
-    {
-     Sum=Sum+array[i];
-    }
-     
- }
- return Sum;
- Console.WriteLine ($"Сумма четных элементов " +Sum.ToString ());
+    int x = new Random().Next(10, 100);
+    array[c] = x;
+    Console.Write($" {array[c]}");
+    c = c + 1;
 }
-EvenNumbers (array);
+c = 0;
+while (c < 4)
+{
+    if (c / 2 == 0)
+    {
+        result = result + array[c];
+    }
+    c++;
+}
+Console.WriteLine("");
+Console.Write($"Сумма элементов на нечетных позициях = {result}");
