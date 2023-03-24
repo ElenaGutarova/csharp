@@ -2,8 +2,8 @@
 
 //[3 7 22 2 78] -> 76
 int c = 0;
-int[] array = new int[] { 3, 7, 22, 2, 78 };
-//int result = 0;
+double[] array = new double[] { 3, 7, 22, 2, 78 };
+c=0;
 while (c < 5)
 {
     //int x = new Random().Next(10, 100);
@@ -11,23 +11,17 @@ while (c < 5)
     Console.Write($" {array[c]}");
     c++;
 }
-int Max = 0;
-while (c>5)
-{
-    if (Max<array[c])
+double min = array[0];
+double max = array[0];
+foreach (double i in array)  // Поиск максимального и минимального значения
     {
-        Max=array[c];
-    }
-    c++;
-}
-int Min = 0;
-while (c>5)
-{
-    if (Min<array[c]  )
+      if (min > i) min = i;
+    }    
+ 
+foreach (double i in array)  
     {
-        Min=array[c];
-    }
-    c++;
-}
+        if (max < i) max = i;
+    }    
 Console.WriteLine("");
-Console.WriteLine($"Разница между максимальнм и минимальным элементом {Max-Min} ");
+Console.WriteLine($"\n Максимальный элемент: {max} Минимальный элемент: {min}");
+Console.WriteLine($"Разница между максимальным и минимальным элементом: {max-min}");
